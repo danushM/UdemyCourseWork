@@ -66,15 +66,29 @@ var marksBills = {
 marksBills.calculateTip();
 console.log(marksBills.mTipArray);
 
+//Function for calculation average of tip array.
 function avgTips(tips) {
   var tipSum = 0;
   for (var arrayIndex = 0; arrayIndex < tips.length; arrayIndex++) {
     tipSum += tips[arrayIndex];
   }
   avgTip = tipSum / tips.length;
-
-  console.log("Mark paid an average of $" + avgTip + " on his holiday." );
+  return avgTip;
 }
 
-//Calling the avgTips function.
-avgTips(marksBills.mTipArray);
+//Calling the avgTips function for John's family.
+var johnsAvgTip = avgTips(johnsBills.tipArray);
+console.log("John paid an everage tip of: $" +johnsAvgTip);
+
+//Calling the avgTips function for Mark's family.
+var marksAvgTip = avgTips(marksBills.mTipArray);
+console.log("Mark paid an average tip of $" +marksAvgTip);
+
+//Checking for who has a higher average tip.
+if (johnsAvgTip > marksAvgTip) {
+  console.log("John's Family has a higher average tip of: $" +johnsAvgTip);
+} else if (marksAvgTip > johnsAvgTip) {
+  console.log("Mark's Family has a higher average tip of: $" +marksAvgTip);
+} else {
+  console.log("Both family's have an equal average tip value of: $" +johnsAvgTip);
+}
